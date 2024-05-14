@@ -4,20 +4,20 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftAcknowledgement",
+    name: "SwiftAcknowledgements",
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
-            name: "SwiftAcknowledgement",
-            targets: ["SwiftAcknowledgement"]),
+            name: "SwiftAcknowledgements",
+            targets: ["SwiftAcknowledgements"]),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "SwiftAcknowledgement"),
+            name: "SwiftAcknowledgements"),
         .testTarget(
-            name: "SwiftAcknowledgementTests",
-            dependencies: ["SwiftAcknowledgement"]),
+            name: "SwiftAcknowledgementsTests",
+            dependencies: ["SwiftAcknowledgements"]),
     ]
 )
