@@ -24,7 +24,7 @@ public struct AcknowledgementsView: View {
 							Divider()
 						}
 					}
-				}
+				}.padding()
 			}
 		}
 	}
