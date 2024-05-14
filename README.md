@@ -5,13 +5,7 @@
 
 ## Overview
 
-Brief description of the package and its purpose.
-
-## Features
-
-- Feature 1
-- Feature 2
-- Feature 3
+A Swift package which creates a SwiftUI View with Acknowledgements from 3rd party packages used in your project.
 
 ## Requirements
 
@@ -55,17 +49,28 @@ Then, include `SwiftAcknowledgements` as a dependency in your target:
 
 ```swift
 import SwiftAcknowledgements
+import SwiftUI
 
-// Example code
+struct ContributionView: View {
+	let acktitle: SwAckTitle
+	let ackBody: SwAckBody
+	let ack: SwAcknowledgement?
+	init() {
+		self.acktitle = SwAckTitle("SwiftAcknowledgements", url: "https://github.com/flexlixrup/SwiftAcknowledgements")
+		self.ackBody = SwAckBody(maintainers: ["2024, Felix Ruppert"], licence: .MIT)
+		self.ack =  try? SwAcknowledgement(swAckTitle: acktitle, swAckBody: ackBody, platforms: [.all])
+	}
+	
+	 
+	var body: some View {
+		if let ack {
+			AcknowledgementsView(acknowledgements: [ack])
+		}
+	}
+}
 ```
 
-### Advanced Usage
 
-Detailed description and examples of advanced usage.
-
-## Documentation
-
-Full documentation is available [here](link-to-documentation).
 
 ## Contributing
 
@@ -76,8 +81,6 @@ If you would like to contribute, please follow these steps:
 3. Commit your changes (`git commit -am 'Add new feature'`).
 4. Push to the branch (`git push origin feature-branch`).
 5. Create a new Pull Request.
-
-Please read our [Contributing Guidelines](CONTRIBUTING.md) for more details.
 
 ## License
 

@@ -88,7 +88,7 @@ public struct SwAcknowledgement: Identifiable, Hashable {
 			let text = "Copyright (c) \(maintainer)\n"
 			fullText += text
 		}
-		return ""
+		return fullText
 	}
 }
 
