@@ -14,18 +14,15 @@ public struct AcknowledgementsView: View {
 	}
 
 	public var body: some View {
-		ForEach(Array(acknowledgements.enumerated()), id: \.element) { idx, acknowledgement in
-			ScrollView {
+		ScrollView {
+			ForEach(Array(acknowledgements.enumerated()), id: \.element) { idx, acknowledgement in
 				VStack {
-					if acknowledgement.platforms.contains(.all) {
+					if acknowledgement.platforms.contains(.all) || acknowledgement.platforms.contains(Platform.currentPlatform) {
 						Link(acknowledgement.swAckTitle.0, destination: acknowledgement.swAckTitle.1).font(.headline)
 						Text(acknowledgement.swAckBody).multilineTextAlignment(.center)
-					} else if acknowledgement.platforms.contains(Platform.currentPlatform) && !acknowledgement.platforms.contains(.all) {
-						Link(acknowledgement.swAckTitle.0, destination: acknowledgement.swAckTitle.1).font(.headline)
-						Text(acknowledgement.swAckBody).multilineTextAlignment(.center)
-					}
-					if idx != acknowledgements.count - 1 {
-						Divider()
+						if idx != acknowledgements.count - 1 {
+							Divider()
+						}
 					}
 				}
 			}
