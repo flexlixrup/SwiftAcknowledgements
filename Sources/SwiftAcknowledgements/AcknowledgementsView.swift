@@ -8,7 +8,7 @@
 import SwiftUI
 
 public struct AcknowledgementsView: View {
-	@State var acknowledgements: [SwAcknowledgement]
+	@State public var acknowledgements: [SwAcknowledgement]
 	public var body: some View {
 		ForEach(Array(acknowledgements.enumerated()), id: \.element) { idx, acknowledgement in
 			ScrollView {
