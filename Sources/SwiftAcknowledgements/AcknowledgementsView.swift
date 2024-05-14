@@ -27,7 +27,12 @@ public struct AcknowledgementsView: View {
 						}
 					}
 				}
-			}.padding(.vertical)
+			}
+			#if os(macOS)
+			.padding(.vertical)
+			#else
+			.padding()
+			#endif
 		}
 	}
 }
