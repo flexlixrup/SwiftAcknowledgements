@@ -24,7 +24,7 @@ public struct AcknowledgementsView: View {
 						Link(acknowledgement.swAckTitle.0, destination: acknowledgement.swAckTitle.1).font(.headline)
 						Text(acknowledgement.swAckBody).multilineTextAlignment(.center)
 					}
-					if idx == acknowledgements.count - 1 {
+					if idx != acknowledgements.count - 1 {
 						Divider()
 					}
 				}
