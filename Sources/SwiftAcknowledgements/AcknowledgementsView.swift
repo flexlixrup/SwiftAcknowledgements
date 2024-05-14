@@ -33,6 +33,10 @@ public struct AcknowledgementsView: View {
 			#else
 			.padding()
 			#endif
+			.onAppear {
+				let ack = try! SwAcknowledgement(swAckTitle: SwAckTitle("SwiftAcknowledgements", url: "https://github.com/flexlixrup/SwiftAcknowledgements"), swAckBody: SwAckBody(maintainers: ["2024, Felix Ruppert"], licence: .MIT), platforms: [.all])
+				acknowledgements.append(ack)
+			}
 		}
 	}
 }
