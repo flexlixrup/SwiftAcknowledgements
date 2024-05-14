@@ -27,7 +27,7 @@ public struct AcknowledgementsView: View {
 						}
 					}
 				}
-			}.padding(.bottom)
+			}.padding(.vertical)
 		}
 	}
 }
