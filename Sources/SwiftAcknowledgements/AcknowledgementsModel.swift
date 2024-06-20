@@ -3,26 +3,39 @@
 
 import Foundation
 
+/// The title of an Acknowledgement
 public struct SwAckTitle {
 	var title: String
 	var url: String
 
+	/// Initializes with the name of the package and the URL to the pacakge.
+	/// - Parameters:
+	///   - title: Name/Title of the package
+	///   - url: URL to the repo of the package
 	public init(_ title: String, url: String) {
 		self.title = title
 		self.url = url
 	}
 }
 
+/// The body of an Acknowledgement
 public struct SwAckBody {
 	var maintainers: [String]
 	var licence: LicenceType
 
+	/// Initializes with the names of the licence holders, as well as a licence type.
+	/// - Parameters:
+	///   - maintainers: Array of maintainer's names
+	///   - licence: The licence type
 	public init(maintainers: [String], licence: LicenceType) {
 		self.maintainers = maintainers
 		self.licence = licence
 	}
 }
 
+/// The licence type
+///
+/// - Warning: Currently there is only the MIT licence available.
 public enum LicenceType {
 	case MIT
 	var licenceTitle: String {
@@ -40,6 +53,7 @@ public enum LicenceType {
 	}
 }
 
+/// The full Acknowledgement, which can then be passed to the View.
 public struct SwAcknowledgement: Identifiable, Hashable {
 	public static func == (lhs: SwAcknowledgement, rhs: SwAcknowledgement) -> Bool {
 		lhs.id == rhs.id
@@ -56,6 +70,11 @@ public struct SwAcknowledgement: Identifiable, Hashable {
 	var swAckTitle: (String, URL) = ("", URL(string: "http://example.com")!)
 	var swAckBody: String = ""
 
+	/// Initializes with the title, the body as well as the platforms, you use the pacakge on.
+	/// - Parameters:
+	///   - swAckTitle: The title of the acknowledgement
+	///   - swAckBody: The body of the acknowledgement
+	///   - platforms: The platform the acknowledgement is used on
 	public init(swAckTitle: SwAckTitle, swAckBody: SwAckBody, platforms: [Platform]) throws {
 		self.platforms = platforms
 		swAckTitleText = swAckTitle
@@ -92,6 +111,9 @@ public struct SwAcknowledgement: Identifiable, Hashable {
 	}
 }
 
+/// All the platforms where your acknowledgement is available on
+///
+/// For all platforms, you can use .all
 public enum Platform {
 	case all
 	case iOS
