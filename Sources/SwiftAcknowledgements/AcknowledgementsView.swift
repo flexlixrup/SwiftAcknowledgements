@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+/// The SwiftUI View, where your acknowledgements will be displayed.
 public struct AcknowledgementsView: View {
 	@State var acknowledgements: [SwAcknowledgement]
+	/// Initializes with an array of acknowledgements
+	/// - Parameter acknowledgements: The acknowledgements array
 	public init(acknowledgements: [SwAcknowledgement]) {
 		_acknowledgements = State(initialValue: acknowledgements)
 	}
